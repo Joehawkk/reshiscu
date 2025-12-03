@@ -24,7 +24,7 @@ for strk in stroki[1:]:
             g[i].append(j)
 
 # распространяем продукт по правилу 20%
-def spread(seeds):
+def anlz(seeds):
     active = [False] * (n + 1)
     for v in seeds:
         active[v] = True
@@ -70,7 +70,7 @@ for i in range(1, n + 1):
     cost = cost0 * deg[i]
     if cost > budget:
         continue
-    allact = spread([i])
+    allact = anlz([i])
     profit = allact * dd      #только выручка
     if profit > top_profit:
         top_profit = profit
@@ -82,12 +82,12 @@ for i in range(1, n + 1):
         cost = cost0 * (deg[i] + deg[j])
         if cost > budget:
             continue
-        allact = spread([i, j])
+        allact = anlz([i, j])
         profit = allact * dd
         if profit > top_profit:
             top_profit = profit
             top_seeds = [i, j]
 
 print("Заключим рекламные контракты с пользователями:", ", ".join(map(str, top_seeds)))
-print("Число активных пользователей:", spread(top_seeds))
+print("Число активных пользователей:", anlz(top_seeds))
 print("Итоговая прибыль:", top_profit, "рублей")
