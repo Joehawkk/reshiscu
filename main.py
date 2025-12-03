@@ -22,7 +22,7 @@ for strk in stroki[1:]:
     for j in range(1, n + 1):
         if strk[j].strip() == "1":
             g[i].append(j)
-x`
+
 # распространяем продукт по правилу 20%
 def spread(seeds):
     active = [False] * (n + 1)
